@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+        }
+
+        #countdown {
+            font-size: 3rem;
+            margin: 20px 0;
+        }
+
+        button {
+            display: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: grey;
+            color: white;
+            border: none;
+            margin: 10px;
+        }
+
+        #image {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">9</div>
+    <button id="copyButton">KEY</button>
+    <button id="redirectButton">SCRIPT</button>
+    <img id="image" src="https://tr.rbxcdn.com/0e25b75b8e1182841231286bab95ca9e/768/432/Image/Webp" width="1200" height="800" alt="Image">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let countdown = 9;
+            const countdownElement = document.getElementById('countdown');
+            const copyButton = document.getElementById('copyButton');
+            const redirectButton = document.getElementById('redirectButton');
+            const image = document.getElementById('image');
+            const textToCopy = 'NOTHING_VERY_KEY';
+            let interval;
+
+            function updateCountdown() {
+                countdownElement.textContent = countdown;
+                countdownElement.style.color = countdown % 2 === 0 ? 'black' : 'white';
+                countdownElement.style.backgroundColor = countdown % 2 === 0 ? 'white' : 'black';
+
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    countdownElement.style.display = 'none';
+                    image.style.display = 'block';
+                    copyButton.style.display = 'block';
+                    redirectButton.style.display = 'block';
+                }
+
+                countdown--;
+            }
+
+            function copyTextToClipboard(text) {
+                const tempInput = document.createElement('input');
+                document.body.appendChild(tempInput);
+                tempInput.value = text;
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+            }
+
+            copyButton.addEventListener('click', () => {
+                copyTextToClipboard(textToCopy);
+                setTimeout(() => {
+                    window.close();
+                }, 3000);
+            });
+
+            redirectButton.addEventListener('click', () => {
+                window.open('https://nothingx555.github.io/__/', '_blank');
+            });
+
+            interval = setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+</html>
