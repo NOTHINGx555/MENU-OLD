@@ -75,17 +75,7 @@
                 countdown--;
             }
 
-            function copyTextToClipboard(text) {
-                const tempInput = document.createElement('input');
-                document.body.appendChild(tempInput);
-                tempInput.value = text;
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-            }
-
             copyButton.addEventListener('click', () => {
-                copyTextToClipboard(textToCopy);
                 window.open('https://nothingx555.github.io/___/', '_blank');
             });
 
