@@ -14,8 +14,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: black;
-            color: white;
+            transition: background-color 2s, color 2s;
         }
 
         #countdown {
@@ -55,13 +54,18 @@
             const redirectButton = document.getElementById('redirectButton');
             const linkButton = document.getElementById('linkButton');
             const image = document.getElementById('image');
-            const textToCopy = 'NOTHING_VERY_KEY';
             let interval;
 
             function updateCountdown() {
                 countdownElement.textContent = countdown;
-                countdownElement.style.color = countdown % 2 === 0 ? 'black' : 'white';
-                countdownElement.style.backgroundColor = countdown % 2 === 0 ? 'white' : 'black';
+                
+                if (countdown % 2 === 0) {
+                    document.body.style.backgroundColor = 'white';
+                    document.body.style.color = 'black';
+                } else {
+                    document.body.style.backgroundColor = 'black';
+                    document.body.style.color = 'white';
+                }
 
                 if (countdown === 0) {
                     clearInterval(interval);
