@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,16 +14,12 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            transition: background-color 2s, color 2s;
-        }
-
-        #countdown {
-            font-size: 3rem;
-            margin: 20px 0;
+            background-color: black; /* Default black background */
+            color: white; /* Default text color */
+            overflow: hidden; /* Hide the scroll bar */
         }
 
         button {
-            display: none;
             padding: 10px 20px;
             font-size: 1rem;
             cursor: pointer;
@@ -31,69 +27,93 @@
             color: white;
             border: none;
             margin: 10px;
+            text-transform: uppercase; /* Change text style to uppercase */
+            transition: transform 0.5s ease; /* Smooth transition for buttons */
         }
 
         #image {
-            display: none;
             margin-top: 20px;
+            cursor: pointer; /* Cursor indicating clickability */
+            border-radius: 0 !important; /* Remove rounded corners */
+            transition: transform 0.5s ease; /* Smooth transition for image */
+        }
+
+        @keyframes gradientTransition {
+            0% {
+                background: linear-gradient(to right, black 50%, white 50%);
+            }
+            50% {
+                background: linear-gradient(to right, white 50%, black 50%);
+            }
+            100% {
+                background: linear-gradient(to right, black 50%, white 50%);
+            }
+        }
+
+        .split-background {
+            animation: gradientTransition 10s infinite;
+        }
+
+        .split-background-reverse {
+            animation: gradientTransition 10s infinite reverse;
+        }
+
+        @keyframes moveLeftRight {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-30px);
+            }
+            75% {
+                transform: translateX(30px);
+            }
+        }
+
+        button:hover, #image:hover {
+            animation: moveLeftRight 0.7s ease infinite; /* Move left-right on hover */
         }
     </style>
 </head>
-<body>
-    <div id="countdown">15</div>
+<body class="split-background">
     <button id="copyButton">KEY</button>
     <button id="redirectButton">SCRIPT</button>
     <button id="linkButton">EXPLOIT PC SOLAR</button>
-    <img id="image" src="https://tr.rbxcdn.com/0e25b75b8e1182841231286bab95ca9e/768/432/Image/Webp" width="1200" height="800" alt="Image">
+    <!-- Changed to make the image element a clickable element -->
+    <a id="playButton" href="roblox://placeID=12177325772" target="_blank">
+        <img id="image" src="https://tr.rbxcdn.com/4cb4b9329a07698f3d04f0b0af18dab4/768/432/Image/Webp" width="768" height="432" alt="Image" title="PLAY">
+    </a>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            let countdown = 14;
-            const countdownElement = document.getElementById('countdown');
-            const copyButton = document.getElementById('copyButton');
-            const redirectButton = document.getElementById('redirectButton');
-            const linkButton = document.getElementById('linkButton');
-            const image = document.getElementById('image');
-            let interval;
+        const copyButton = document.getElementById('copyButton');
+        const redirectButton = document.getElementById('redirectButton');
+        const linkButton = document.getElementById('linkButton');
+        const image = document.getElementById('image');
 
-            function updateCountdown() {
-                countdownElement.textContent = countdown;
-                
-                if (countdown % 2 === 0) {
-                    document.body.style.backgroundColor = 'white';
-                    document.body.style.color = 'black';
-                } else {
-                    document.body.style.backgroundColor = 'black';
-                    document.body.style.color = 'white';
-                }
+        function addRotationEffect(element) {
+            element.classList.add('rotate');
+            setTimeout(() => {
+                element.classList.remove('rotate');
+            }, 1000); // Remove the class after 1 second
+        }
 
-                if (countdown === 0) {
-                    clearInterval(interval);
-                    document.body.style.backgroundColor = 'black';
-                    document.body.style.color = 'white';
-                    countdownElement.style.display = 'none';
-                    image.style.display = 'block';
-                    copyButton.style.display = 'block';
-                    redirectButton.style.display = 'block';
-                    linkButton.style.display = 'block';
-                }
+        copyButton.addEventListener('click', () => {
+            addRotationEffect(copyButton);
+            window.open('https://nothingx555.github.io/___/', '_blank');
+        });
 
-                countdown--;
-            }
+        redirectButton.addEventListener('click', () => {
+            addRotationEffect(redirectButton);
+            window.open('https://nothingx555.github.io/__/', '_blank');
+        });
 
-            copyButton.addEventListener('click', () => {
-                window.open('https://nothingx555.github.io/___/', '_blank');
-            });
+        linkButton.addEventListener('click', () => {
+            addRotationEffect(linkButton);
+            window.open('https://cdn.discordapp.com/attachments/1257429320721236059/1259917412669849711/Solara.exe?ex=668d6d07&is=668c1b87&hm=6e7cb93c7fd068209df38eb4b08b456b59b737622a1c3b2a5c604e1a7ee0c550&', '_blank');
+        });
 
-            redirectButton.addEventListener('click', () => {
-                window.open('https://nothingx555.github.io/__/', '_blank');
-            });
-
-            linkButton.addEventListener('click', () => {
-                window.open('https://cdn.discordapp.com/attachments/1257429320721236059/1259917412669849711/Solara.exe?ex=668d6d07&is=668c1b87&hm=6e7cb93c7fd068209df38eb4b08b456b59b737622a1c3b2a5c604e1a7ee0c550&', '_blank');
-            });
-
-            interval = setInterval(updateCountdown, 1000);
+        image.addEventListener('click', () => {
+            addRotationEffect(image);
         });
     </script>
 </body>
