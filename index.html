@@ -24,18 +24,33 @@
             font-size: 1rem;
             cursor: pointer;
             background-color: black;
-            color: white;
-            border: none;
+            color: limegreen;
+            border: 2px solid limegreen; /* Add a border */
+            border-radius: 5px;
             margin: 10px;
             text-transform: uppercase; /* Change text style to uppercase */
-            transition: transform 0.5s ease; /* Smooth transition for buttons */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+            transition: transform 0.5s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for buttons */
+        }
+
+        button:hover {
+            transform: translateY(-3px); /* Slightly lift button on hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Intensify shadow on hover */
+            background-color: limegreen; /* Change background color on hover */
+            color: black; /* Change text color on hover */
         }
 
         #image {
             margin-top: 20px;
             cursor: pointer; /* Cursor indicating clickability */
-            border-radius: 0 !important; /* Remove rounded corners */
+            border-radius: 5px; /* Add rounded corners to the image */
             transition: transform 0.5s ease; /* Smooth transition for image */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+        }
+
+        #image:hover {
+            transform: translateY(-3px); /* Slightly lift image on hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Intensify shadow on hover */
         }
 
         @keyframes gradientTransition {
@@ -70,24 +85,24 @@
             }
         }
 
-        button:hover, #image:hover {
-            animation: moveLeftRight 0.7s ease infinite; /* Move left-right on hover */
+        button:active, #image:active {
+            animation: moveLeftRight 0.7s ease infinite; /* Move left-right on active */
         }
     </style>
 </head>
 <body class="split-background">
-    <button id="copyButton">KEY</button>
     <button id="redirectButton">SCRIPT</button>
     <button id="linkButton">EXPLOIT PC SOLAR</button>
+    <button id="downloadButton">DOWNLOAD WAVE</button> <!-- New Download Wave button -->
     <!-- Changed to make the image element a clickable element -->
     <a id="playButton" href="roblox://placeID=12177325772" target="_blank">
         <img id="image" src="https://tr.rbxcdn.com/4cb4b9329a07698f3d04f0b0af18dab4/768/432/Image/Webp" width="768" height="432" alt="Image" title="PLAY">
     </a>
 
     <script>
-        const copyButton = document.getElementById('copyButton');
         const redirectButton = document.getElementById('redirectButton');
         const linkButton = document.getElementById('linkButton');
+        const downloadButton = document.getElementById('downloadButton'); // New Download Wave button
         const image = document.getElementById('image');
 
         function addRotationEffect(element) {
@@ -97,11 +112,6 @@
             }, 1000); // Remove the class after 1 second
         }
 
-        copyButton.addEventListener('click', () => {
-            addRotationEffect(copyButton);
-            window.open('https://nothingx555.github.io/___/', '_blank');
-        });
-
         redirectButton.addEventListener('click', () => {
             addRotationEffect(redirectButton);
             window.open('https://nothingx555.github.io/__/', '_blank');
@@ -109,7 +119,12 @@
 
         linkButton.addEventListener('click', () => {
             addRotationEffect(linkButton);
-            window.open('https://cdn.discordapp.com/attachments/1257429320721236059/1259917412669849711/Solara.exe?ex=668d6d07&is=668c1b87&hm=6e7cb93c7fd068209df38eb4b08b456b59b737622a1c3b2a5c604e1a7ee0c550&', '_blank');
+            window.open('https://fv5-2.failiem.lv/down.php?i=4d8z7zgxk8', '_blank'); // Updated link
+        });
+
+        downloadButton.addEventListener('click', () => { // Event listener for the new button
+            addRotationEffect(downloadButton);
+            window.open('https://cdn.getwave.gg/WaveInstaller.exe', '_blank');
         });
 
         image.addEventListener('click', () => {
