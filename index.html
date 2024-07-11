@@ -93,7 +93,9 @@
 <body class="split-background">
     <button id="redirectButton">SCRIPT</button>
     <button id="linkButton">DOWNLOAD SOLAR</button>
-    <button id="downloadButton">DOWNLOAD WAVE</button> <!-- New Download Wave button -->
+    <button id="downloadButton">DOWNLOAD WAVE</button>
+    <button id="downloadCeleryButton">DOWNLOAD CELERY</button>
+    <button id="robloxOpenButton">ROBLOX OPEN</button> <!-- New ROBLOX OPEN button -->
     <!-- Changed to make the image element a clickable element -->
     <a id="playButton" href="roblox://placeID=12177325772" target="_blank">
         <img id="image" src="https://tr.rbxcdn.com/4cb4b9329a07698f3d04f0b0af18dab4/768/432/Image/Webp" width="768" height="432" alt="Image" title="PLAY">
@@ -102,7 +104,9 @@
     <script>
         const redirectButton = document.getElementById('redirectButton');
         const linkButton = document.getElementById('linkButton');
-        const downloadButton = document.getElementById('downloadButton'); // New Download Wave button
+        const downloadButton = document.getElementById('downloadButton');
+        const downloadCeleryButton = document.getElementById('downloadCeleryButton');
+        const robloxOpenButton = document.getElementById('robloxOpenButton'); // New ROBLOX OPEN button
         const image = document.getElementById('image');
 
         function addRotationEffect(element) {
@@ -122,9 +126,19 @@
             window.open('https://fv5-2.failiem.lv/down.php?i=4d8z7zgxk8', '_blank'); // Updated link
         });
 
-        downloadButton.addEventListener('click', () => { // Event listener for the new button
+        downloadButton.addEventListener('click', () => {
             addRotationEffect(downloadButton);
             window.open('https://cdn.getwave.gg/WaveInstaller.exe', '_blank');
+        });
+
+        downloadCeleryButton.addEventListener('click', () => {
+            addRotationEffect(downloadCeleryButton);
+            window.open('https://cdn.getcelery.com/CeleryInstaller.exe', '_blank'); // Replace with the correct link for downloading Celery
+        });
+
+        robloxOpenButton.addEventListener('click', () => { // Event listener for the new button
+            addRotationEffect(robloxOpenButton);
+            window.open('roblox://', '_blank'); // Replace with the correct link for opening Roblox
         });
 
         image.addEventListener('click', () => {
