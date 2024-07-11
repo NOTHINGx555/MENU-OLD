@@ -92,11 +92,11 @@
 </head>
 <body class="split-background">
     <button id="redirectButton">SCRIPT</button>
-    <button id="linkButton">DOWNLOAD SOLAR</button>
-    <button id="downloadButton">DOWNLOAD WAVE</button>
-    <button id="downloadCeleryButton">DOWNLOAD CELERY</button>
-    <button id="robloxOpenButton">ROBLOX OPEN</button> <!-- New ROBLOX OPEN button -->
-    <!-- Changed to make the image element a clickable element -->
+     <button id="robloxOpenButton">ROBLOX OPEN</button>
+    <button id="newPageButton">DOWNLOAD OLD ROBLOX🟢</button>
+    <button id="linkButton">DOWNLOAD SOLAR🟠</button>
+    <button id="downloadButton">DOWNLOAD WAVE🔴</button>
+    <button id="downloadCeleryButton">DOWNLOAD CELERY🔴</button>
     <a id="playButton" href="roblox://placeID=12177325772" target="_blank">
         <img id="image" src="https://tr.rbxcdn.com/4cb4b9329a07698f3d04f0b0af18dab4/768/432/Image/Webp" width="768" height="432" alt="Image" title="PLAY">
     </a>
@@ -107,7 +107,7 @@
         const downloadButton = document.getElementById('downloadButton');
         const downloadCeleryButton = document.getElementById('downloadCeleryButton');
         const robloxOpenButton = document.getElementById('robloxOpenButton'); // New ROBLOX OPEN button
-        const image = document.getElementById('image');
+        const newPageButton = document.getElementById('newPageButton'); // New button for opening a new page
 
         function addRotationEffect(element) {
             element.classList.add('rotate');
@@ -133,7 +133,7 @@
 
         downloadCeleryButton.addEventListener('click', () => {
             addRotationEffect(downloadCeleryButton);
-            window.open('https://cdn.getcelery.com/CeleryInstaller.exe', '_blank'); // Replace with the correct link for downloading Celery
+            window.open('https://fv5-3.failiem.lv/down.php?i=bb6a3szu32', '_blank'); // Replace with the correct link for downloading Celery
         });
 
         robloxOpenButton.addEventListener('click', () => { // Event listener for the new button
@@ -141,6 +141,13 @@
             window.open('roblox://', '_blank'); // Replace with the correct link for opening Roblox
         });
 
+        newPageButton.addEventListener('click', () => { // Event listener for the new button to open a new page
+            addRotationEffect(newPageButton);
+            window.open('https://fv2-8.failiem.lv/down.php?i=vghez47vsu', '_blank');
+        });
+
+        // Click handler for the image
+        const image = document.getElementById('image');
         image.addEventListener('click', () => {
             addRotationEffect(image);
         });
