@@ -14,9 +14,9 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: black; /* Default black background */
-            color: white; /* Default text color */
-            overflow: hidden; /* Hide the scroll bar */
+            background-color: black;
+            color: white;
+            overflow: hidden;
         }
 
         button {
@@ -25,32 +25,50 @@
             cursor: pointer;
             background-color: black;
             color: limegreen;
-            border: 2px solid limegreen; /* Add a border */
+            border: 2px solid limegreen;
             border-radius: 5px;
             margin: 10px;
-            text-transform: uppercase; /* Change text style to uppercase */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
-            transition: transform 0.5s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for buttons */
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.3s ease, background-color 0.3s ease;
         }
 
         button:hover {
-            transform: translateY(-3px); /* Slightly lift button on hover */
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Intensify shadow on hover */
-            background-color: limegreen; /* Change background color on hover */
-            color: black; /* Change text color on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            background-color: limegreen;
+            color: black;
         }
 
         #image {
             margin-top: 20px;
-            cursor: pointer; /* Cursor indicating clickability */
-            border-radius: 5px; /* Add rounded corners to the image */
-            transition: transform 0.5s ease; /* Smooth transition for image */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.5s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         #image:hover {
-            transform: translateY(-3px); /* Slightly lift image on hover */
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Intensify shadow on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #discordIcon {
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: transform 0.5s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: spin 4s linear infinite; /* Spinning effect */
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes gradientTransition {
@@ -85,8 +103,8 @@
             }
         }
 
-        button:active, #image:active {
-            animation: moveLeftRight 0.4s ease infinite; /* Move left-right on active */
+        button:active, #image:active, #discordIcon:active {
+            animation: moveLeftRight 0.4s ease infinite;
         }
     </style>
 </head>
@@ -99,20 +117,24 @@
     <a id="playButton" href="roblox://placeID=12177325772" target="_blank">
         <img id="image" src="https://tr.rbxcdn.com/4cb4b9329a07698f3d04f0b0af18dab4/768/432/Image/Webp" width="768" height="432" alt="Image" title="PLAY">
     </a>
+    <a id="discordLink" href="https://discord.gg/YG9G9EzYeA" target="_blank">
+        <img id="discordIcon" src="https://a.allegroimg.com/original/1e0b07/bdcff01f46a4aec8c93576314d60" width="64" height="64" alt="Discord Icon" title="Join our Discord">
+    </a>
 
     <script>
         const redirectButton = document.getElementById('redirectButton');
         const linkButton = document.getElementById('linkButton');
         const downloadButton = document.getElementById('downloadButton');
         const downloadCeleryButton = document.getElementById('downloadCeleryButton');
-        const robloxOpenButton = document.getElementById('robloxOpenButton'); // New ROBLOX OPEN button
-        const newPageButton = document.getElementById('newPageButton'); // New button for opening a new page
+        const robloxOpenButton = document.getElementById('robloxOpenButton');
+        const newPageButton = document.getElementById('newPageButton');
+        const discordIcon = document.getElementById('discordIcon');
 
         function addRotationEffect(element) {
             element.classList.add('rotate');
             setTimeout(() => {
                 element.classList.remove('rotate');
-            }, 1000); // Remove the class after 1 second
+            }, 1000);
         }
 
         redirectButton.addEventListener('click', () => {
@@ -122,7 +144,7 @@
 
         linkButton.addEventListener('click', () => {
             addRotationEffect(linkButton);
-            window.open('https://fv5-2.failiem.lv/down.php?i=4d8z7zgxk8', '_blank'); // Updated link
+            window.open('https://fv5-2.failiem.lv/down.php?i=4d8z7zgxk8', '_blank');
         });
 
         downloadButton.addEventListener('click', () => {
@@ -132,20 +154,23 @@
 
         downloadCeleryButton.addEventListener('click', () => {
             addRotationEffect(downloadCeleryButton);
-            window.open('https://fv5-5.failiem.lv/down.php?i=86q936svss', '_blank'); // Replace with the correct link for downloading Celery
+            window.open('https://fv5-5.failiem.lv/down.php?i=86q936svss', '_blank');
         });
 
-        robloxOpenButton.addEventListener('click', () => { // Event listener for the new button
+        robloxOpenButton.addEventListener('click', () => {
             addRotationEffect(robloxOpenButton);
-            window.open('roblox://', '_blank'); // Replace with the correct link for opening Roblox
+            window.open('roblox://', '_blank');
         });
 
-        newPageButton.addEventListener('click', () => { // Event listener for the new button to open a new page
+        newPageButton.addEventListener('click', () => {
             addRotationEffect(newPageButton);
             window.open('https://fv2-8.failiem.lv/down.php?i=vghez47vsu', '_blank');
         });
 
-        // Click handler for the image
+        discordIcon.addEventListener('click', () => {
+            addRotationEffect(discordIcon);
+        });
+
         const image = document.getElementById('image');
         image.addEventListener('click', () => {
             addRotationEffect(image);
