@@ -154,7 +154,7 @@
         setButtonVisibility(redirectButton, true); // Set to true to make visible
         setButtonVisibility(linkButton, true); // Set to true to make visible
         setButtonVisibility(anonymeButton, true); // Set to true to make visible
-        setButtonVisibility(celeryButton, false); // Set to true to make visible
+        setButtonVisibility(celeryButton, true); // Set to true to make visible
         setBackgroundColor('black'); // Set background to black
 
         redirectButton.addEventListener('click', () => {
@@ -174,7 +174,7 @@
 
         celeryButton.addEventListener('click', () => { // New Button event
             addRotationEffect(celeryButton);
-            window.open('https://nic/', '_blank');
+            window.open('https://celery.zip/Download', '_blank');
         });
 
         discordIcon.addEventListener('click', () => {
